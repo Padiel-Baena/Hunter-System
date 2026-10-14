@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fuentes */
+  --font-medieval: "Uncial Antiqua", serif;
+  --font-system: "Orbitron", sans-serif;
+
+  /* Colores del Sistema */
+  --color-sl-abyss: #050508;
+  --color-sl-surface: #111116;
+  --color-sl-surface-elevated: #22222d;
+  --color-sl-cyan: #00e5ff;
+  --color-sl-purple: #8b5cf6;
+  --color-p5-blood: #e60012;
+  --color-p5-gold: #fbbf24;
+  --color-p5-paper: #f1f1f1;
+  --color-success: #34d399;
+
+  /* Sombras y Brillos */
+  --shadow-glow-cyan: 0 0 15px rgba(0, 229, 255, 0.4);
+  --shadow-glow-purple: 0 0 15px rgba(139, 92, 246, 0.4);
+
+  /* Animaciones Base */
+  --animate-system-open: systemOpen 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-gradient-flow: gradientFlow 5s linear infinite;
+}
+
+@keyframes systemOpen {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.01) scaleX(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(0.01) scaleX(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-sl-abyss text-p5-paper font-system min-h-screen flex flex-col selection:bg-p5-blood selection:text-white;
+  }
+}
